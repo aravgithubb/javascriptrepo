@@ -3,7 +3,7 @@
 const {By,Key,Builder} = require("selenium-webdriver");
 require("chromedriver");
  
-async function festival()
+async function GetSelected()
 {
 
  	// LAUNCHING THE BROWSER
@@ -26,4 +26,4 @@ async function festival()
 	  }
 
 }    
-festival()
+GetSelected()
