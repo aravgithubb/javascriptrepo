@@ -2,7 +2,7 @@
 const {By,Key,Builder} = require("selenium-webdriver");
 require("chromedriver");
  
-async function festival()
+async function GetData()
 {
  	// LAUNCHING THE BROWSER
        let driver = await new Builder().forBrowser("chrome").build();
@@ -17,4 +17,4 @@ async function festival()
 	  }
 
 }    
-festival()
+GetData()
