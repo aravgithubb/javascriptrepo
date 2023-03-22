@@ -3,7 +3,7 @@
 const {By,Key,Builder} = require("selenium-webdriver");
 require("chromedriver");
  
-async function festival()
+async function verifyTitle()
 {
  
  	     // LAUNCHING THE BROWSER 
@@ -18,4 +18,4 @@ async function festival()
        Assert.assertEquals(actualtitle, expectedtitle);
 
 }    
-festival()
+verifyTitle()
