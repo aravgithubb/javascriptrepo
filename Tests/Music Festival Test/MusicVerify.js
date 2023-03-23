@@ -2,6 +2,7 @@
 
 const {By,Key,Builder} = require("selenium-webdriver");
 require("chromedriver");
+var assert=require("assert");
  
 async function verifyTitle()
 {
