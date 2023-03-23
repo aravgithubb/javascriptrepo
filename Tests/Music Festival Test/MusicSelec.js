@@ -3,27 +3,24 @@
 const {By,Key,Builder} = require("selenium-webdriver");
 require("chromedriver");
  
-async function GetSelected()
+async function MusicSelec()
 {
-
- 	// LAUNCHING THE BROWSER
+       // browser launch
        let driver = await new Builder().forBrowser("chrome").build();
-	// LAUNCH THE URL
-       await driver.get("http://localhost:4200/s");
-	//FIND ELEMENTS
+       // launch url
+       await driver.get("http://localhost:4200/festivals");
+       // implicit wati to sync with webdriver.
+       await driver.manage().setTimeouts( {implicit : 10000} );
+       // maximize the browser
+       await driver.manage().window().fullscreen();
+       // find element and return value
+      let element= await driver.findElement(By.xpath("//ol[@style='user-select: auto;']/li[5]")).getText().then(function(value){
+        return value
+      });
+      // validating the actual and expected text 
+      assert.strictEqual(element,"cold capsicu");
+      // quit the browser
+      await driver.quit();
 
-	  let elements= await driver.findelements(By.xpath("/html/body/app-root/app-festivals/ol/li"));
-	// extracting the elements and getting text of the selected webelement.
-	  for(let elem of elements)
-      {
-        // checking element is interactable or not
-         Assert.assertFalse(elem.isEnabled());
-	      // giving condition to check
-        if (elem.getText().equals("Propeller")){
-            console.log(await elem.getText());
-
-        }
-	  }
-
-}    
-GetSelected()
+} ;
+MusicSelec()
