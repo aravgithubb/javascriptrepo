@@ -1,18 +1,24 @@
 //IMPORTING THE SELENIUM WEBDRIVER AND CHROME
 const {By,Key,Builder} = require("selenium-webdriver");
+
 require("chromedriver");
+
+var assert=require("assert");
  
-async function GetData()
-{
- 	// LAUNCHING THE BROWSER
-       let driver = await new Builder().forBrowser("chrome").build();
-	// LAUNCH THE URL
-       await driver.get("http://localhost:4200/s");
-	//FIND ELEMENTS
-	  let elements= await driver.findelements(By.xpath("/html/body/app-root/app-festivals/ol/li"));
-	// EXTRACTING THE ELEMENTS AND PRINTING THE TEXT ON THE CONSOLE and validating the element is displayed
+async function MusicSelec(){       
+        // browser launch     
+	let driver = await new Builder().forBrowser("chrome").build();       
+	// launch url       
+	await driver.get("http://localhost:4200/festivals");     
+	// implicit wati to sync with webdriver.       
+	await driver.manage().setTimeouts( {implicit : 10000} );   
+	// maximize the browser       
+	await driver.manage().window().fullscreen();      
+	// find elements and return value     
+	let element= await driver.findElement(By.xpath("//ol[@style='user-select: auto;']/li[5]")).getText().then(function(value){       
+	return value      });
+	// EXTRACTING THE ELEMENTS AND PRINTING THE TEXT ON THE CONSOLE.
 	  for(let elem of elements){
-		Assert.assertTrue(await elem.isDisplayed());
 		console.log("Element " + elem.getText());
 	  }
 
