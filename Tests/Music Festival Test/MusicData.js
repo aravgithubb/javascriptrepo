@@ -3,7 +3,7 @@ const {By,Key,Builder} = require("selenium-webdriver");
 require("chromedriver");
 
  
-async function MusicSelec(){       
+async function MusicData(){       
         // browser launch     
 	let driver = await new Builder().forBrowser("chrome").build();       
 	// launch url       
@@ -21,4 +21,4 @@ async function MusicSelec(){
 	  }
 
 }    
-MusicSelec()
+MusicData()
