@@ -13,7 +13,7 @@ async function MusicSelec(){
 	// maximize the browser       
 	await driver.manage().window().fullscreen();      
 	// find elements and return value     
-	let element= await driver.findElement(By.xpath("//ol[@style='user-select: auto;']/li[5]")).getText().then(function(value){       
+	let elements= await driver.findElements(By.xpath("//ol[@style='user-select: auto;']/li[5]")).getText().then(function(value){       
 	return value      });
 	// EXTRACTING THE ELEMENTS AND PRINTING THE TEXT ON THE CONSOLE.
 	  for(let elem of elements){
